@@ -1,5 +1,3 @@
-
-
 const data = {
     ted: {
         title: "TED",
