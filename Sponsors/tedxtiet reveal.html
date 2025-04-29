@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TEDxTIET Reveal</title>
+  <style>
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .reveal-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reveal-text {
+      font-size: 4rem;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      color: white;
+      position: relative;
+      transform: translateY(100%);
+      animation: revealUp 1.2s ease-out forwards;
+    }
+
+    .reveal-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: red;
+      transform: translateX(-100%);
+      animation: sweep 1s ease-out forwards;
+    }
+
+    @keyframes sweep {
+      0% {
+        transform: translateX(-100%);
+      }
+      50% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    @keyframes revealUp {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(0%);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reveal-container">
+  <div class="reveal-bar"></div>
+  <div class="reveal-text">TEDxTIET</div>
+</div>
+
+</body>
+</html>

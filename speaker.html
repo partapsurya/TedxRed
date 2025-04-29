@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/Navbar/ted.jpg" />
+  <title>TEDx Event – Speakers</title>
+  <link rel="stylesheet" href="speaker files/styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+</head>
+<body>
+  
+  <header>
+    <!-- NAVBAR START HERE -->
+    <nav>
+      <div class="navbar">
+        <div class="nav-logo">
+          <a href="index.html"><img id="nav-logo-img" src="Navbar/Picture 1.png" alt="TedxTIET">
+          </div>
+
+        <ul class="nav-links">
+          <li><a Href="index.html">Home</a></li>
+          <li><a Href="Speaker.html">Speakers</a></li>
+          <li><a Href="team.html">Team</a></li>
+          <li><a Href="Sponsors.html">Sponsors</a></li>
+          <li><a Href="https://unstop.com/o/dyQ8m37?utm_medium=Share&utm_source=shortUrl">Register Now</a></li>
+        </ul>
+        <span class="emptyhdr"></span>
+        <!-- <a href="#" class="nav-register">Register Now</a> -->
+        <div class="nav_hamburger">
+          <i class="fa-solid fa-bars"> </i>
+        </div>
+
+        <div class="nav_dropdown">
+          <li><a Href="index.html">Home</a></li>
+          <li><a Href="Speaker.html">Speakers</a></li>
+          <li><a Href="team.html">Team</a></li>
+          <li><a Href="Sponsors.html">Sponsors</a></li>
+          <li><a Href="https://unstop.com/o/dyQ8m37?utm_medium=Share&utm_source=shortUrl">Register Now</a></li>
+
+        </div>
+      </div>
+    </nav>
+    <!-- NAVBAR ENDS HERE -->
+  </header>
+
+  <section class="speakers-section" id="speakers">
+    <h2 class="speakers-title">Meet Our Speakers</h2>
+    <div class="speakers-grid" id="speakersGrid">
+      <!-- Speaker cards will be dynamically inserted here -->
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    © 2025 TEDxTIET. All rights reserved.
+  </footer>
+
+  <script src="speaker files/script.js"></script>
+  <script>
+    const nav_hbtn = document.querySelector('.nav_hamburger')
+    const nav_hbtnicon = document.querySelector('.nav_hamburger i')
+    const nav_dd = document.querySelector('.nav_dropdown')
+
+    nav_hbtn.onclick = function () {
+      nav_dd.classList.toggle('open')
+      const isOpen = nav_dd.classList.contains('open')
+
+      nav_hbtnicon.classList = isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars'
+    }
+
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/Navbar/ted.jpg" />
+
+  <title>TEDx TIET Team</title>
+  <!-- Swiper.js Carousel CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+  
+    body {
+      background: linear-gradient(135deg, #0a0a0a, #1c1c1c);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+      color: white;
+      overflow-x: hidden;
+    }
+  
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid #ff2b2b;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: slideDown 1s ease forwards;
+    }
+  
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  
+    .logo img {
+      height: 60px;
+    }
+  
+    .menu {
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .menu:hover {
+      color: #ff2b2b;
+    }
+  
+    .main-title {
+      text-align: center;
+      font-size: 3em;
+      margin: 60px 0 30px;
+      font-weight: bold;
+      color: #ff2b2b;
+      animation: fadeIn 2s ease forwards;
+    }
+  
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    .tags {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+    }
+  
+    .tag {
+  background-color: rgba(255, 43, 43, 0.7); /* less saturated red */
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 0 8px rgba(255, 43, 43, 0.5); /* softer glow */
+  animation: fadeIn 1.5s ease forwards;
+}
+
+  
+    .team-grid {
+      padding: 30px 20px;
+    }
+  
+    .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 80px;
+      margin-bottom: 50px;
+    }
+  
+    .card {
+      background: rgba(30, 30, 30, 0.8);
+      border: 1px solid #ff2b2b;
+      border-radius: 15px;
+      overflow: hidden;
+      text-align: center;
+      width: 220px;
+      padding: 20px 10px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 10px #ff2b2b40;
+    }
+  
+    .card:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px #ff2b2b;
+    }
+  
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: transform 0.4s ease;
+    }
+  
+    .card:hover img {
+      transform: scale(1.05);
+    }
+  
+    .card h3 {
+      margin-top: 10px;
+      font-size: 1.4em;
+      color: #ff2b2b;
+      font-weight: bold;
+    }
+  
+    .card p {
+      color: #ddd;
+      font-size: 1em;
+      margin-top: 5px;
+    }
+  
+    .swiper {
+      width: 90%;
+      padding: 50px 0;
+      margin: auto;
+    }
+  
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .swiper-slide .card {
+      width: 180px;
+      padding: 15px;
+    }
+  
+    .swiper-slide .card img {
+      height: 200px;
+    }
+  
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #ff2b2b;
+      filter: drop-shadow(0 0 5px #ff2b2b);
+      transition: transform 0.3s;
+    }
+  
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      transform: scale(1.2);
+    }
+  
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 2.2em;
+      }
+  
+      .card {
+        width: 90%;
+      }
+    }
+    /* NavBar Starts Here */
+header {
+    position: relative;
+    padding: 0 2rem;
+    /* border-bottom: 0.5px solid red; */
+    background-color: rgb(0, 0, 0);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.nav_dropdown a {
+    color: rgb(255, 255, 255);
+}
+
+nav a:hover {
+    color: rgb(236, 0, 39);
+}
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    color: black;
+    padding-left: 4%;
+    padding-right: 4%;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    align-items: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    /* border:2px solid red; */
+}
+
+#nav-logo-img {
+    height: 48px;
+    cursor: pointer;
+}
+
+
+.emptyhdr{
+    width:11%;
+    height: 1px;
+}
+
+
+.nav_hamburger {
+    width: 20px;
+    height: 14px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: none;
+}
+
+.nav-register {
+    background-color: rgb(0, 0, 0);
+    color: rgb(247, 124, 124);
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.nav-register:hover {
+    scale: 1.05;
+}
+
+.nav_dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    height: 0;
+    background-color: rgba(0, 0, 0, 1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    right: 0rem;
+    left: 0rem;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav_dropdown li {
+    padding: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_dropdown.open {
+    height: auto;
+}
+
+@media(max-width:768px) {
+
+    .nav-links,
+    .nav-register {
+        display: none;
+    }
+
+    .nav_hamburger {
+        display: block;
+    }
+
+    .nav_dropdown {
+        display: block;
+    }
+}
+
+/* NavBar Ends Here */
+    
+  </style>
+  
+</head>
+<body>
+  <header>
+    <!-- NAVBAR START HERE -->
+    <nav>
+      <div class="navbar">
+        <div class="nav-logo">
+          <a href="index.html"><img id="nav-logo-img" src="Navbar/Picture 1.png" alt="TedxTIET">
+          </div>
+
+        <ul class="nav-links">
+          <li><a Href="index.html">Home</a></li>
+          <li><a Href="Speaker.html">Speakers</a></li>
+          <li><a Href="team.html">Team</a></li>
+          <li><a Href="Sponsors.html">Sponsors</a></li>
+          <li><a Href="https://unstop.com/o/dyQ8m37?utm_medium=Share&utm_source=shortUrl">Register Now</a></li>
+        </ul>
+        <span class="emptyhdr"></span>
+        <!-- <a href="#" class="nav-register">Register Now</a> -->
+        <div class="nav_hamburger">
+          <i class="fa-solid fa-bars"> </i>
+        </div>
+
+        <div class="nav_dropdown">
+          <li><a Href="index.html">Home</a></li>
+          <li><a Href="Speaker.html">Speakers</a></li>
+          <li><a Href="team.html">Team</a></li>
+          <li><a Href="Sponsors.html">Sponsors</a></li>
+          <li><a Href="https://unstop.com/o/dyQ8m37?utm_medium=Share&utm_source=shortUrl">Register Now</a></li>
+
+
+        </div>
+      </div>
+    </nav>
+    <!-- NAVBAR ENDS HERE -->
+  </header>
+
+  <!-- <div class="header">
+    <div class="logo">
+      <img src="./logoo.png" alt="TEDxTIET Logo">
+    </div>
+    <div class="menu">Main Menu</div>
+  </div>
+
+  <div class="main-title">Meet Our Team</div> -->
+
+  <!-- Executive Board (STATIC BLOCKS) -->
+  <div class="tags">
+    <div class="tag">Executive Board</div>
+  </div>
+  <div class="team-grid">
+    <!-- Row 1: 2 cards -->
+    <div class="row">
+      <div class="card"><img src="./eb/Japneet.jpg" alt=""><h3>Japneet Khanna</h3><p>Lead Organizer</p></div>
+      <div class="card"><img src="./eb/Aman.jpg" alt=""><h3>Aman</h3><p>Co-Lead Organizer</p></div>
+    </div>
+  
+    <!-- Row 2: 2 cards -->
+    <div class="row">
+      <div class="card"><img src="./eb/Pranjal.jpg" alt=""><h3>Pranjal Batish</h3><p>Joint Lead</p></div>
+      <div class="card"><img src="./eb/Tanay.jpg" alt=""><h3>Tanay Mukker</h3><p>Joint Lead</p></div>
+    </div>
+  
+    <!-- Row 3: 3 cards -->
+    <div class="row">
+      <div class="card"><img src="./eb/Shambhavi.jpg" alt=""><h3>Shambhavi Sharma</h3><p>Marketing and EC Lead</p></div>
+      <div class="card"><img src="./eb/Priyam.jpg" alt=""><h3>Priyam Ganguli</h3><p>Design and EC Lead</p></div>
+      <div class="card"><img src="./eb/Raghav.jpg" alt=""><h3>Raghav Jindal</h3><p>Marketing and Operations Lead</p></div>
+    </div>
+  
+    <!-- Row 4: 4 cards -->
+    <div class="row">
+      <div class="card"><img src="./eb/Rohit.jpg" alt=""><h3>Rohit Arora</h3><p>Social Media Lead</p></div>
+      <div class="card"><img src="./eb/amit.jpg" alt=""><h3>Amit Katoch</h3><p>Events and Outreach Lead</p></div>
+      <div class="card"><img src="./eb/Bhavya.jpg" alt=""><h3>Bhavya Arora</h3><p>Fin and Doc lead</p></div>
+
+    </div>
+  </div>
+  
+  
+
+  <!-- Executive Committee Carousel -->
+  <div class="tags">
+    <div class="tag">Executive Committee</div>
+  </div>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><div class="card"><img src="./ec/Surya.jpg" alt=""><h3>Surya Partap Singh</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Birapar.jpg" alt=""><h3>Birapar Singh</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Aniket.jpg" alt=""><h3>Aniket Gupta</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Anushka Pandey.jpg" alt=""><h3>Anushka Pandey</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Arushi.jpg" alt=""><h3>Arushi Jain</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Daksh.jpg" alt=""><h3>Daksh Sachdeva</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Dhruv.jpg" alt=""><h3>Dhruv Verma</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Kaushik.JPEG" alt=""><h3>Kaushik</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Mehul.jpg" alt=""><h3>Mehul Kujur</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Pavni Goel.jpg" alt=""><h3>Pavni Goel</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Poorva Puri .jpg" alt=""><h3>Poorva Puri</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Puneet_.JPG" alt=""><h3>Puneet Kumar</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Ritigya.jpg" alt=""><h3>Ritigya Singh</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Shardool.jpg" alt=""><h3>Shardool</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Rohan Sharma .JPG" alt=""><h3>Rohan Sharma</h3></div></div>
+    c
+      <div class="swiper-slide"><div class="card"><img src="./ec/aanya_garg.jpg" alt=""><h3>Aanya Garg</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Aastha.jpg" alt=""><h3>Aastha Mahajan</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/ATISHAY JAIN.jpg" alt=""><h3>Atishay Jain</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/satakshi.jpg" alt=""><h3>Satakshi Tripathi</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Vrinda_Chhabra.jpg" alt=""><h3>Vrinda Chhabra</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/disha.jpg" alt=""><h3>Disha Verma</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Yuvraj Sharma.jpg" alt=""><h3>Yuvraj Sharma</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Piyush.PNG" alt=""><h3>Piyush Garg</h3></div></div>
+      <div class="swiper-slide"><div class="card"><img src="./ec/Sanya Rajput.jpg'" alt=""><h3>Sanya Rajput</h3></div></div>
+
+      
+      
+
+
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <!-- Swiper Init Script -->
+  <script>
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 3,
+        },
+        1024: {
+          slidesPerView: 5,
+        }
+      }
+    });
+  </script>
+  <script>
+    const nav_hbtn = document.querySelector('.nav_hamburger')
+    const nav_hbtnicon = document.querySelector('.nav_hamburger i')
+    const nav_dd = document.querySelector('.nav_dropdown')
+
+    nav_hbtn.onclick = function () {
+      nav_dd.classList.toggle('open')
+      const isOpen = nav_dd.classList.contains('open')
+
+      nav_hbtnicon.classList = isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars'
+    }
+</script>
+</body>
+</html>
