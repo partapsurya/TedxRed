@@ -12,7 +12,7 @@ const data = {
     tedxtiet: {
         title: "TEDxTIET",
         description: "TEDxTIET is an annual independently organized TED event that commenced in 2015. It is driven by a dedicated team of passionate volunteers, comprising undergraduate and post-graduate students of Thapar Institute of Engineering and Technology (TIET). The main conference at TEDxTIET is a culmination of months of meticulous preparation, bringing together visionaries, innovators, and changemakers for an extraordinary day of exploration and inspiration. Set against the backdrop of Thapar University in Patiala, this event transcends traditional conferences, embodying a celebration of human creativity and resilience.",
-        img: "Homepage/7.jpg"  // Update with the correct path
+        img: "Homepage/7.JPG"  // Update with the correct path
     }
 };
   
