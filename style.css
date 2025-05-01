@@ -1,3 +1,70 @@
+/* Scoped loader styles */
+#loader {
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  
+  /* Container for the reveal animation */
+  .reveal-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Text reveal animation */
+  .reveal-text {
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: white;
+    position: relative;
+    transform: translateY(100%);
+    animation: revealUp 1.2s ease-out forwards;
+  }
+  
+  /* Red sweep bar animation */
+  .reveal-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: red;
+    transform: translateX(-100%);
+    animation: sweep 1s ease-out forwards;
+  }
+  
+  /* Keyframe for red bar sweeping across */
+  @keyframes sweep {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  /* Keyframe for text moving upward */
+  @keyframes revealUp {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+  
+
+
 * {
     margin: 0;
     padding: 0;

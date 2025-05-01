@@ -22,6 +22,15 @@
 <body>
 
 
+<!-- Loader HTML -->
+<div id="loader" class="loader">
+  <div class="reveal-container">
+    <div class="reveal-bar"></div>
+    <div class="reveal-text">TEDxTIET</div>
+  </div>
+</div>
+
+
   <header>
     <!-- NAVBAR START HERE -->
     <nav>
@@ -330,6 +339,16 @@
     }
 
   </script>
+
+
+<script>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    }, 1800); // Match animation time
+  });
+</script>
 
 
 
